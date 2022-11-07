@@ -77,4 +77,25 @@ public class LivroDao {
 		}
 		return livros;
 	}
+	
+	public void postLivro(LivroModel livro) {
+		String sql = "insert into tblivros" +
+					 "(codlivro ,titulo, autor, categoria, valor)" +
+					 "values (?,?,?,?,?)";
+		PreparedStatement stmt=null;
+		try {
+			stmt = this.connection.prepareStatement(sql);
+			stmt.setInt(0, livro.getCodlivro());
+			stmt.setString(1, livro.getTitulo());
+			stmt.setString(2, livro.getAutor());
+			stmt.setString(3, livro.getCategoria());
+			stmt.setFloat(4, livro.getValor());
+			
+			stmt.execute();
+			stmt.close();
+			
+		}  catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }
