@@ -15,14 +15,16 @@ public class CategoriaDao {
 		this.connection = new ConnectionFactory().getConnection();
 	}
 	
-	
 	public List<CategoriaModel> getListaCategorias(){
+
 		
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		
+		List<CategoriaModel> categorias = new ArrayList<CategoriaModel>();
 		try {
-			List<CategoriaModel> categorias = new ArrayList<CategoriaModel>();
-			
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM tbcategorias");
-			ResultSet rs = stmt.executeQuery();
+			stmt = this.connection.prepareStatement("SELECT * FROM tbcategorias");
+			rs = stmt.executeQuery();
 			/*Começando o laço */
 			while(rs.next()) {
 			CategoriaModel categoria = new CategoriaModel();

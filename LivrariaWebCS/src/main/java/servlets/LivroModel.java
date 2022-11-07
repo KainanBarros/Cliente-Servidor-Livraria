@@ -5,10 +5,17 @@ public class LivroModel {
 	private int codlivro;
 	private String titulo;
 	private String autor;
+	private String categoria;
 	private float valor;
 	
 	public int getCodlivro() {
 		return codlivro;
+	}
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
 	public void setCodlivro(int codlivro) {
 		this.codlivro = codlivro;

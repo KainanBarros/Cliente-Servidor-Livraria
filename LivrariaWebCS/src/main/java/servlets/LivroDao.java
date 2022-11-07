@@ -9,26 +9,28 @@ import java.util.List;
 
 public class LivroDao {
 
+	
 	private Connection connection;
 	
 	public LivroDao() {
 		this.connection = new ConnectionFactory().getConnection();
 	}
 	
-	public List<LivroModel> getListaLivros(String categoria){
-		
+	public List<LivroModel> getListaLivros(String cat){
+
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		List<LivroModel> livros = new ArrayList<LivroModel>();
 		try {
-			List<LivroModel> livros = new ArrayList<LivroModel>();
-			
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM tblivros WHERE categoria = '" + categoria + "';" );
-			ResultSet rs = stmt.executeQuery();
-		
+			stmt = this.connection.prepareStatement("SELECT * FROM tblivros WHERE categoria = '" + cat + "';");
+			rs = stmt.executeQuery();
 			while(rs.next()) {
 				LivroModel livro = new LivroModel();
 		
 				livro.setCodlivro(rs.getInt("codlivro"));
 				livro.setTitulo(rs.getString("titulo"));
 				livro.setAutor(rs.getString("autor"));
+				livro.setCategoria(rs.getString("categoria"));
 				livro.setValor(rs.getFloat("valor"));
 		
 				livros.add(livro);
@@ -38,9 +40,41 @@ public class LivroDao {
 			rs.close();
 			stmt.close();
 		
-			return livros;
+			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+		return livros;
+	}
+	
+	public List<LivroModel> getLivro(String codLivro){
+
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		List<LivroModel> livros = new ArrayList<LivroModel>();
+		try {
+			stmt = this.connection.prepareStatement("SELECT * FROM tblivros WHERE codlivro = '" + codLivro + "';");
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				LivroModel livro = new LivroModel();
+		
+				livro.setCodlivro(rs.getInt("codlivro"));
+				livro.setTitulo(rs.getString("titulo"));
+				livro.setAutor(rs.getString("autor"));
+				livro.setCategoria(rs.getString("categoria"));
+				livro.setValor(rs.getFloat("valor"));
+		
+				livros.add(livro);
+		
+			}
+		
+			rs.close();
+			stmt.close();
+		
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return livros;
 	}
 }

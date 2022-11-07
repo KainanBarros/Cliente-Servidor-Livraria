@@ -24,7 +24,6 @@
 		<h1>ALUNOS</h1>
 		<div>
 			<p><strong>RGM 260207-26</strong> Agatha Sayuri Gama Doy</p>
-			<p><strong>RGM 280753-82</strong> Brenno Falcioni da Silva </p>
 			<p><strong>RGM 264786-68</strong> Kainan Roberto Alves de Barros</p>
 			<p><strong>RGM 282272-98</strong> Kaique Roberto Alves de Barros</p>
 			<p><strong>RGM 256339-88</strong> Ligia Carolina Ziauberis dos Passos</p>

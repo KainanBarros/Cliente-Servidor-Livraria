@@ -11,8 +11,9 @@ public class testaConexao {
 		CategoriaDao dao = new CategoriaDao();
 		LivroDao daoLivro = new LivroDao();
 		
+		String cat = "Design";
 		List<CategoriaModel> categorias = dao.getListaCategorias();
-		List<LivroModel> livros = daoLivro.getListaLivros("Informática") ;
+		List<LivroModel> livros = daoLivro.getListaLivros(cat);
 		
 		for(CategoriaModel categoria : categorias) {
 			System.out.println("Categoria: "+ categoria.getCategoria());
@@ -22,6 +23,7 @@ public class testaConexao {
 			System.out.println("codlivro: "+ livro.getCodlivro());
 			System.out.println("titulo: "+ livro.getTitulo());
 			System.out.println("autor: "+ livro.getAutor());
+			System.out.println("categoria: "+ livro.getCategoria());
 			System.out.println("valor: "+ livro.getValor() +"\n");
 		}
 	}

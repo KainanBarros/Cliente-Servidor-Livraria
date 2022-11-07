@@ -1,0 +1,41 @@
+.form-busca-categoria{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8% 0%;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+select{
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px 0px;
+}
+button{
+    padding: 5px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #0802fd;
+}
+table {
+    border-collapse: collapse;
+    width: 75%;
+}
+
+th{
+    background-color: #0802fd;
+    color: #fff;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+td:hover{background-color:#808080}
